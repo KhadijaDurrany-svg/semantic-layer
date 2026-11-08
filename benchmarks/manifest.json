@@ -1,0 +1,9 @@
+{
+  "dataset_checksum": "cf0ede3bab14a8f3bfe90c40681d9e4cdc76b25ca8915a78ebb6149aa34d3746",
+  "git_sha": "n/a",
+  "n_trials": 12,
+  "numpy": "2.5.4",
+  "platform": "Linux-6.18.44-fc-v242-x86_64-with-glibc2.39",
+  "python": "3.13.18",
+  "seed": 20260101
+}

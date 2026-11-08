@@ -1,0 +1,71 @@
+{
+  "comparison": {
+    "method_vs_best_baseline": {
+      "baseline": "random",
+      "f1_delta": 0.5388,
+      "n_perm": 10000,
+      "permutation_p_value": 0.0001
+    }
+  },
+  "config": {
+    "hard_drift_frac": 0.4,
+    "hard_duplicate_frac": 0.4,
+    "n_base": 60,
+    "n_circular": 2,
+    "n_concept_decoy": 5,
+    "n_dangling": 4,
+    "n_drift": 7,
+    "n_duplicate": 7,
+    "n_invalid_agg": 4,
+    "n_name_decoy": 5,
+    "n_undefined_dim": 4
+  },
+  "dataset_checksum": "cf0ede3bab14a8f3bfe90c40681d9e4cdc76b25ca8915a78ebb6149aa34d3746",
+  "n_items": 1335,
+  "n_positive": 375,
+  "n_trials": 12,
+  "positive_rate": 0.2809,
+  "seed": 20260101,
+  "systems": {
+    "method": {
+      "f1": 0.8183,
+      "f1_ci95": [
+        0.7855,
+        0.8462
+      ],
+      "fn": 71,
+      "fp": 64,
+      "precision": 0.8261,
+      "recall": 0.8107,
+      "tn": 896,
+      "tp": 304
+    },
+    "name_only_dedup": {
+      "f1": 0.2033,
+      "f1_ci95": [
+        0.1572,
+        0.25
+      ],
+      "fn": 319,
+      "fp": 120,
+      "precision": 0.3182,
+      "recall": 0.1493,
+      "tn": 840,
+      "tp": 56
+    },
+    "random": {
+      "f1": 0.2795,
+      "f1_ci95": [
+        0.2342,
+        0.3221
+      ],
+      "fn": 272,
+      "fp": 259,
+      "precision": 0.2845,
+      "recall": 0.2747,
+      "tn": 701,
+      "tp": 103
+    }
+  },
+  "task": "injected-definition-problem detection (per-metric binary)"
+}

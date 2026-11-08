@@ -1,0 +1,53 @@
+# A small metric-definition file for `metridef lint`.
+# Valid dimensions for this project: country, region, channel, plan
+metrics:
+  - name: revenue
+    entity: orders
+    aggregation: sum
+    expression: amount
+    dimensions: [country, region]
+    filters: ["status = 'paid'"]
+    grain: day
+    owner: finance
+
+  - name: orders_count
+    entity: orders
+    aggregation: count
+    expression: id
+    dimensions: [country, channel]
+    grain: day
+
+  # Duplicate of `revenue` under a different name (same computation).
+  - name: paid_amount
+    entity: orders
+    aggregation: sum
+    expression: amount
+    filters: ["status = 'paid'"]
+
+  # Drift: same concept as `revenue`, but a conflicting definition.
+  - name: total_revenue
+    entity: orders
+    aggregation: avg
+    expression: amount
+    filters: ["status = 'completed'"]
+
+  # Derived ratio with valid lineage.
+  - name: aov
+    entity: orders
+    aggregation: ratio
+    expression: revenue / orders_count
+    dimensions: [country]
+    lineage: [revenue, orders_count]
+
+  # Dangling lineage reference.
+  - name: refund_rate
+    entity: orders
+    aggregation: ratio
+    expression: refunds / orders_count
+    lineage: [refunds, orders_count]
+
+  # Unknown aggregation.
+  - name: p95_latency
+    entity: sessions
+    aggregation: p95
+    expression: duration_ms
